@@ -48,5 +48,10 @@ function draw() {
 }
 
 function keyPressed() {
-	//write code here
+	if(keyPressed(leftArrow)){
+		fairy.velocityX = -3;
+	}
+	if(keyPressed(righttArrow)){
+		fairy.velocityX = 3;
+	}
 }
