@@ -32,7 +32,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:true});
+	starBody = Bodies.circle(650 , 30 , 5 , {restitution:0.5, isStatic:false});
 	World.add(world, starBody);
 	
 	Engine.run(engine);
@@ -45,13 +45,22 @@ function draw() {
 
   drawSprites();
 
+  buttonPressed();
+
 }
 
-function keyPressed() {
-	if(keyPressed(leftArrow)){
-		fairy.velocityX = -3;
+function buttonPressed() {
+
+	if(keyDown(LEFT_ARROW)){
+		fairy.x = fairy.x - 3;
 	}
-	if(keyPressed(righttArrow)){
-		fairy.velocityX = 3;
+	if(keyDown(RIGHT_ARROW)){
+		fairy.x = fairy.x + 3;
+	}
+	if(keyDown(DOWN_ARROW)){
+		star.velocityY = 3;
+	}
+	if(star.y > 470){
+		star.velocityY = 0;
 	}
 }
